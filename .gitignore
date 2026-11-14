@@ -1,35 +1,82 @@
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+# # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
-# dependencies
-/node_modules
-/.pnp
+# # dependencies
+# /node_modules
+# /.pnp
+# .pnp.js
+# .yarn/install-state.gz
+
+# # turbo
+# .turbo
+
+# # misc
+# .DS_Store
+# *.pem
+
+# # debug
+# npm-debug.log*
+# yarn-debug.log*
+# yarn-error.log*
+
+# # env files
+# .env
+# .env.*
+# !.env.example
+
+# # vercel
+# .vercel
+
+# # typescript
+# *.tsbuildinfo
+# next-env.d.ts
+
+# # VS Code
+# .vscode
+# .env*
+
+
+
+# Dependencies
+node_modules/
+.pnp
 .pnp.js
 .yarn/install-state.gz
 
-# turbo
-.turbo
+# Turbo
+.turbo/
 
-# misc
+# Next.js
+.next/
+out/
+next-env.d.ts
+
+# Build outputs
+dist/
+build/
+
+# Miscellaneous
 .DS_Store
 *.pem
 
-# debug
+# Debug logs
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+pnpm-debug.log*
 
-# env files
+# Environment variables
 .env
 .env.*
 !.env.example
 
-# vercel
-.vercel
+# Vercel
+.vercel/
 
-# typescript
+# TypeScript
 *.tsbuildinfo
-next-env.d.ts
 
-# VS Code
-.vscode
-.env*
+# IDE
+.vscode/
+
+# Coverage
+coverage/

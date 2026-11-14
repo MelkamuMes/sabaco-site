@@ -1,0 +1,45 @@
+{
+  "nav": {
+    "home": "Home",
+    "services": "Services",
+    "solutions": "Solutions",
+    "work": "Work",
+    "blog": "Blog",
+    "about": "About",
+    "contact": "Contact"
+  },
+ "hero": {
+    "title": "We build",
+    "subtitle": "that fit your business.",
+    "desc": "We design and build ERP systems, websites, mobile apps and chatbots for companies that need technology made to fit, not forced to fit.",
+    "cta": "Get a free consultation",
+    "trust": "Custom development for companies of every size."
+  },
+  "heroInteractive": {
+    "typingWords": ["ERP systems", "mobile apps", "websites", "chatbots", "custom software"],
+    "tabs": {
+      "erp": "ERP",
+      "app": "Mobile app",
+      "bot": "Chatbot"
+    },
+    "erp": {
+      "sales": "Sales",
+      "inventory": "Inventory",
+      "hr": "HR and payroll",
+      "finance": "Finance",
+      "reports": "Reports"
+    },
+    "app": {
+      "order": "Order",
+      "items": "items",
+      "delivered": "Delivered",
+      "onTheWay": "On the way"
+    },
+    "bot": {
+      "user1": "Where is my invoice for March?",
+      "bot1": "Found it. Invoice #2031 was sent on 3 March. Want me to email it again?",
+      "user2": "Yes, please."
+    }
+  }
+
+}

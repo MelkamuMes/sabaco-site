@@ -1,96 +1,178 @@
-import {Suspense} from 'react'
-import Link from 'next/link'
-import {PortableText} from '@portabletext/react'
+// // import Navbar from "./components/Navbar";
+// // import ParticleCanvas from "./components/ParticleCanvas";
+// // import { TypingText, FeatureTabs } from "./components/HeroInteractive";
 
-import {AllPosts} from '@/app/components/Posts'
-import GetStartedCode from '@/app/components/GetStartedCode'
-import SideBySideIcons from '@/app/components/SideBySideIcons'
-import {settingsQuery} from '@/sanity/lib/queries'
-import {sanityFetch} from '@/sanity/lib/live'
-import {dataAttr} from '@/sanity/lib/utils'
+// // export default function Home() {
+// //   return (
+// //     <main id="top" className="min-h-screen">
+// //       <Navbar />
 
-export default async function Page() {
-  const {data: settings} = await sanityFetch({
-    query: settingsQuery,
-  })
+// //       {/* HERO SECTION */}
+// //       <section className="relative bg-[var(--hbg)] text-[var(--htx)] pt-[72px] pb-[96px] overflow-hidden">
+// //         {/* Background Glows & Canvas */}
+// //         <div className="absolute w-[560px] h-[560px] right-[-140px] top-[-180px] bg-[radial-gradient(circle,rgba(14,255,135,.3),transparent_65%)] animate-[drift_12s_ease-in-out_infinite_alternate]"></div>
+// //         <ParticleCanvas />
+
+// //         <div className="max-w-[1140px] mx-auto px-6 grid md:grid-cols-[1.05fr_.95fr] gap-[56px] items-center relative z-10">
+// //           <div>
+// //             <h1 className="text-[clamp(34px,4.8vw,56px)] font-extrabold tracking-tight animate-[rise_.8s_ease-out_both]">
+// //               We build<br/>
+// //               <TypingText /><br/>
+// //               that fit your business.
+// //             </h1>
+// //             <p className="text-[19px] text-[var(--hmu)] max-w-[34em] mt-[22px] mb-[32px] animate-[rise_.8s_ease-out_.15s_both]">
+// //               We design and build ERP systems, websites, mobile apps and chatbots for companies that need technology made to fit, not forced to fit.
+// //             </p>
+// //             <div className="flex gap-[14px] flex-wrap animate-[rise_.8s_ease-out_.3s_both]">
+// //               <a href="#contact" className="btn btn-gold relative">
+// //                 Get a free consultation
+// //                 <span className="absolute -inset-[2px] rounded-[10px] border-2 border-[var(--gold)] animate-[ping_2s_ease-out_infinite]"></span>
+// //               </a>
+// //               <a href="#services" className="btn btn-ghost">See what we build</a>
+// //             </div>
+// //             <div className="mt-[36px] text-[var(--hmu)] text-sm animate-[rise_.8s_ease-out_.45s_both]">
+// //               Custom development for companies of every size.
+// //             </div>
+// //           </div>
+
+// //           <FeatureTabs />
+// //         </div>
+// //       </section>
+// //     </main>
+// //   );
+// // }
+
+
+
+// // todo
+// import Navbar from "./components/Navbar";
+// import ParticleCanvas from "./components/ParticleCanvas";
+// import { TypingText, FeatureTabs } from "./components/HeroInteractive";
+// import Marquee from "./components/Marquee";
+// import Services from "./components/Services";
+// import Work from "./components/Work";
+// import Process from "./components/Process";
+// import { Contact, Footer } from "./components/ContactFooter";
+// import Automation from "./components/Automation";
+// import Integration from "./components/Integration";
+
+// export default function Home() {
+//   return (
+//     <main id="top" className="min-h-screen ">
+//       <Navbar />
+
+//       <section className="relative bg-[var(--hbg)] text-[var(--htx)]  pt-[140px] md:pt-[160px] pb-[96px]  overflow-hidden">
+//         <div className="absolute w-[560px] h-[560px] right-[-140px] top-[-180px] bg-[radial-gradient(circle,rgba(14,255,135,.3),transparent_65%)] animate-[drift_12s_ease-in-out_infinite_alternate]"></div>
+//         <ParticleCanvas />
+
+//         <div className="max-w-[1140px] mx-auto px-6 grid md:grid-cols-[1.05fr_.95fr] gap-[56px] items-center relative z-10">
+//           <div>
+//             <h1 className="text-[clamp(34px,4.8vw,56px)] font-extrabold tracking-tight animate-[rise_.8s_ease-out_both]">
+//               We build<br/>
+//               <TypingText /><br/>
+//               that fit your business.
+//             </h1>
+//             <p className="text-[19px] text-[var(--hmu)] max-w-[34em] mt-[22px] mb-[32px] animate-[rise_.8s_ease-out_.15s_both]">
+//               We design and build ERP systems, websites, mobile apps and chatbots for companies that need technology made to fit, not forced to fit.
+//             </p>
+//             <div className="flex gap-[14px] flex-wrap animate-[rise_.8s_ease-out_.3s_both] relative z-20">
+              
+//               <a href="#contact" className="btn btn-gold relative animate-[pulse-ring_2s_ease-out_infinite]">
+//                 Get a free consultation
+//               </a>
+
+//               <a href="#services" className="btn btn-ghost relative z-10 bg-[var(--hbg)]">
+//                 See what we build
+//               </a>
+//             </div>
+//             <div className="mt-[36px] text-[var(--hmu)] text-sm animate-[rise_.8s_ease-out_.45s_both]">
+//               Custom development for companies of every size.
+//             </div>
+//           </div>
+//           <FeatureTabs />
+//         </div>
+//       </section>
+
+//       <Marquee />
+//       <Services />
+//       <Integration />
+//       <Automation />
+//       <Work />
+//       <Process />
+//       <Contact />
+//       <Footer />
+//     </main>
+//   );
+// }
+
+
+
+// todo translatiion
+"use client"; 
+
+import { useLanguage } from "./context/LanguageContext";
+import Navbar from "./components/Navbar";
+import ParticleCanvas from "./components/ParticleCanvas";
+import { TypingText, FeatureTabs } from "./components/HeroInteractive";
+import Marquee from "./components/Marquee";
+import Services from "./components/Services";
+import Integration from "./components/Integration";
+import Automation from "./components/Automation";
+import Work from "./components/Work";
+import Process from "./components/Process";
+import { Contact } from "./components/ContactFooter"; // Assuming you renamed it
+
+export default function Home() {
+  const { dict } = useLanguage();
 
   return (
-    <>
-      <div className="relative">
-        <div className="relative bg-[url(/images/tile-1-black.png)] bg-size-[5px]">
-          <div className="bg-gradient-to-b from-white w-full h-full absolute top-0"></div>
-          <div className="container">
-            <div className="relative min-h-[40vh] mx-auto max-w-2xl pt-10 xl:pt-20 pb-30 space-y-6 lg:max-w-4xl lg:px-12 flex flex-col items-center justify-center">
-              <div className="flex flex-col gap-4 items-center">
-                <div className="text-md leading-6 prose uppercase py-1 px-3 bg-white font-mono italic">
-                  A starter template for
-                </div>
-                <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tighter text-black">
-                  <Link
-                    className="underline decoration-brand hover:text-brand underline-offset-8 hover:underline-offset-4 transition-all ease-out"
-                    href="https://sanity.io/"
-                  >
-                    Sanity
-                  </Link>
-                  +
-                  <Link
-                    className="underline decoration-black text-framework underline-offset-8 hover:underline-offset-4 transition-all ease-out"
-                    href="https://nextjs.org/"
-                  >
-                    Next.js
-                  </Link>
-                </h1>
-              </div>
+    // IMPORTANT: Do not put overflow-hidden on <main> or the sticky navbar breaks
+    <main id="top" className="min-h-screen bg-[var(--bg)]">
+      <Navbar />
+
+      {/* HERO SECTION */}
+      <section className="relative bg-[var(--hbg)] text-[var(--htx)] pt-[140px] md:pt-[160px] pb-[96px] overflow-hidden">
+        <div className="absolute w-[560px] h-[560px] right-[-140px] top-[-180px] bg-[radial-gradient(circle,rgba(14,255,135,.3),transparent_65%)] animate-[drift_12s_ease-in-out_infinite_alternate]"></div>
+        <ParticleCanvas />
+
+        <div className="max-w-[1320px] mx-auto px-4 md:px-8 grid md:grid-cols-[1.05fr_.95fr] gap-[56px] items-center relative z-10">
+          <div>
+            <h1 className="text-[clamp(34px,4.8vw,56px)] font-extrabold tracking-tight animate-[rise_.8s_ease-out_both]">
+              {dict.hero.title}<br/>
+              <TypingText /><br/>
+              {dict.hero.subtitle}
+            </h1>
+            <p className="text-[19px] text-[var(--hmu)] max-w-[34em] mt-[22px] mb-[32px] animate-[rise_.8s_ease-out_.15s_both]">
+              {dict.hero.desc}
+            </p>
+            <div className="flex gap-[14px] flex-wrap animate-[rise_.8s_ease-out_.3s_both] relative z-20">
+              <a href="#contact" className="btn btn-gold relative animate-[pulse-ring_2s_ease-out_infinite]">
+                <span className="relative z-10 text-white">{dict.hero.cta}</span>
+                {/* <span className="absolute inset-0 rounded-[10px] border-2 border-[var(--gold)] animate-[ping_2s_ease-out_infinite] pointer-events-none -z-10"></span> */}
+              </a>
+              <a href="#services" className="btn btn-ghost relative z-10 bg-[var(--hbg)]">
+                {dict.nav.services}
+              </a>
+            </div>
+           
+            <div className="mt-[36px] text-[var(--hmu)] text-sm animate-[rise_.8s_ease-out_.45s_both]">
+              {dict.hero.trust}
             </div>
           </div>
+          <FeatureTabs />
         </div>
-        <div className=" flex flex-col items-center">
-          <SideBySideIcons />
-          <div className="container relative mx-auto max-w-2xl pb-20 pt-10 space-y-6 lg:max-w-4xl lg:px-12 flex flex-col items-center">
-            <div className="prose sm:prose-lg md:prose-xl xl:prose-2xl text-gray-700 prose-a:text-gray-700 font-light text-center">
-              {settings?.description && (
-                <div
-                  data-sanity={dataAttr({
-                    id: settings._id,
-                    type: 'settings',
-                    path: 'description',
-                  }).toString()}
-                >
-                  <PortableText value={settings.description} />
-                </div>
-              )}
-              <div className="flex items-center flex-col gap-4">
-                <GetStartedCode />
-                <Link
-                  href="https://www.sanity.io/docs"
-                  className="inline-flex text-brand text-xs md:text-sm underline hover:text-gray-900"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Sanity Documentation
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 24 24"
-                    className="w-4 h-4 ml-1 inline"
-                    fill="currentColor"
-                  >
-                    <path d="M10 6V8H5V19H16V14H18V20C18 20.5523 17.5523 21 17 21H4C3.44772 21 3 20.5523 3 20V7C3 6.44772 3.44772 6 4 6H10ZM21 3V12L17.206 8.207L11.2071 14.2071L9.79289 12.7929L15.792 6.793L12 3H21Z"></path>
-                  </svg>
-                </Link>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div className="border-t border-gray-100 bg-gray-50">
-        <div className="container">
-          <aside className="py-12 sm:py-20">
-            <Suspense>
-              <AllPosts />
-            </Suspense>
-          </aside>
-        </div>
-      </div>
-    </>
-  )
+      </section>
+
+      {/* REST OF THE PAGE */}
+      <Marquee />
+      <Services />
+      <Integration />
+      <Automation />
+      <Work />
+      <Process />
+      <Contact />
+      
+      {/* Footer is now merged into the Contact section, so we don't need a separate <Footer /> here */}
+    </main>
+  );
 }

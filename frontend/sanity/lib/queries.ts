@@ -7,10 +7,10 @@ const postFields = /* groq */ `
   "status": select(_originalId in path("drafts.**") => "draft", "published"),
   "title": coalesce(title, "Untitled"),
   "slug": slug.current,
-  excerpt,
-  coverImage,
-  "date": coalesce(date, _updatedAt),
-  "author": author->{firstName, lastName, picture},
+  "excerpt": array::join(string::split(pt::text(body), " ")[0...20], " ") + "...",
+  mainImage, // Changed from coverImage
+  "date": coalesce(publishedAt, _updatedAt), // Changed from date
+  "author": author->{name, picture}, 
 `
 
 const linkReference = /* groq */ `
@@ -79,7 +79,7 @@ export const morePostsQuery = defineQuery(`
 
 export const postQuery = defineQuery(`
   *[_type == "post" && slug.current == $slug] [0] {
-    content[]{
+    body[]{ // Changed from content
     ...,
     markDefs[]{
       ...,

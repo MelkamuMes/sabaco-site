@@ -1,45 +1,66 @@
-@import 'tailwindcss';
+@import "tailwindcss";
 
-@plugin "@tailwindcss/typography";
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
 
-@layer base {
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    @apply font-medium tracking-tight;
+
+:root {
+  /* --navy: #102C42; --white: #F5F7FA; --gold: #D4AF37; --mid: #18212B; --sky: #7DB7E8; */
+  --navy: #102C42; --white: #F5F7FA; --gold: #0eb38f; --sabaco: #0e8a6f; --mid: #18212B; --sky: #7de8c4 ;
+  --bg: #fff; --surface: #F5F7FA; --text: #18212B; --muted: #51606e; --line: #dde3ea;
+  /* --hbg: #fff; --htx: #102C42; --hmu: #51606e; --hline: #e3e8ee; --hgh: rgba(16,44,66,.3); --acc: #9A7A10; */
+  --hbg: #fff; --htx: #102C42; --hmu: #51606e; --hline: #e3e8ee; --hgh: rgba(16,44,66,.3); --acc: #0ea584;
+  --f-head: var(--font-sora), system-ui, sans-serif; 
+  --f-body: var(--font-manrope), system-ui, sans-serif;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #18212B; --surface: #1f2b38; --text: #F5F7FA; --muted: #a9b6c3; --line: #2c3a49; 
+    /* --hbg: #102C42; --htx: #F5F7FA; --hmu: #c3d0dc; --hline: rgba(125,183,232,.18); --hgh: rgba(245,247,250,.35); --acc: #D4AF37; */
+    --hbg: #102C42; --htx: #F5F7FA; --hmu: #c3d0dc; --hline: rgba(125,183,232,.18); --hgh: rgba(245,247,250,.35); --acc:#0ea584;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #18212B; --surface: #1f2b38; --text: #F5F7FA; --muted: #a9b6c3; --line: #2c3a49; 
+  /* --hbg: #102C42; --htx: #F5F7FA; --hmu: #c3d0dc; --hline: rgba(125,183,232,.18); --hgh: rgba(245,247,250,.35); --acc: #D4AF37; */
+  --hbg: #102C42; --htx: #F5F7FA; --hmu: #c3d0dc; --hline: rgba(125,183,232,.18); --hgh: rgba(245,247,250,.35); --acc: #0ea584;
+}
+
+html { scroll-behavior: smooth; scroll-padding-top: 72px; }
+body { margin: 0; background: var(--bg); color: var(--text); font-family: var(--f-body); transition: background .4s, color .4s; }
+h1, h2, h3 { font-family: var(--f-head); line-height: 1.12; margin: 0; }
+:focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; }
+
+/* --- Keyframes from your HTML --- */
+@keyframes rise { from { opacity: 0; transform: translateY(28px); } }
+@keyframes grow { from { width: 0 !important; } }
+@keyframes drift { to { transform: translate(-90px, 100px) scale(1.2); } }
+@keyframes float { 50% { transform: translateY(-12px); } }
+@keyframes blink { 50% { opacity: 0; } }
+@keyframes pulse-ring {
+  0% { box-shadow: 0 0 0 0 rgba(14, 255, 135, 0.7); } /* Your new green color */
+  70% { box-shadow: 0 0 0 10px rgba(14, 255, 135, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(14, 255, 135, 0); }
+}
+@keyframes pop { from { opacity: 0; transform: translateY(12px) scale(.97); } }
+@keyframes scroll { to { transform: translateX(-50%); } }
+@keyframes shine { to { background-position: -200% 0; } }
+
+/* Animates the dashed line moving forward */
+@keyframes dash {
+  to {
+    stroke-dashoffset: -24;
   }
 }
 
-@utility container {
-  margin: 0 auto;
-  padding: 0 2rem;
+/* Gentle floating animation for the badges */
+@keyframes float-badge {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
 }
 
-@custom-variant dark (&:where(.dark, .dark *));
-
-@theme {
-  --shadow-layer: 0 35px 60px -15px rgba(0, 0, 0, 0.3);
-
-  --color-framework: #000;
-  --color-black: #0b0b0b;
-  --color-white: #fff;
-  --color-brand: #f50;
-  --color-blue: #0052ff;
-  --color-yellow: #cdea19;
-  --color-gray-50: #f6f6f8;
-  --color-gray-100: #eeeef1;
-  --color-gray-200: #e3e4e8;
-  --color-gray-300: #bbbdc9;
-  --color-gray-400: #9499ad;
-  --color-gray-500: #727892;
-  --color-gray-600: #515870;
-  --color-gray-700: #383d51;
-  --color-gray-800: #252837;
-  --color-gray-900: #1b1d27;
-  --color-gray-950: #13141b;
-
-  --default-transition-duration: 250ms;
-}
+/* Reusable Button Classes */
+.btn { display: inline-block; padding: 14px 26px; border-radius: 10px; font-weight: 700; font-size: 16px; text-decoration: none; border: 2px solid transparent; cursor: pointer; transition: transform .15s; }
+.btn:hover { transform: translateY(-2px); }
+.btn-gold { background: var(--gold); color: var(--navy); }
+.btn-ghost { border-color: var(--hgh); color: var(--htx); }
