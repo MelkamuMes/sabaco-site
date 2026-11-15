@@ -1,8 +1,9 @@
-import createImageUrlBuilder from '@sanity/image-url'
-import { client } from './client' // Ensure this path points to your sanity client
+import {createImageUrlBuilder, type SanityImageSource} from '@sanity/image-url'
 
-const imageBuilder = createImageUrlBuilder(client)
+const imageBuilder = createImageUrlBuilder({
+  projectId: process.env.SANITY_STUDIO_PROJECT_ID || 'your-projectID',
+  dataset: process.env.SANITY_STUDIO_DATASET || 'production',
+})
 
-export const urlForImage = (source: any) => {
-  return imageBuilder?.image(source).auto('format').fit('max')
-}
+export const urlForImage = (source: SanityImageSource) =>
+  imageBuilder.image(source).auto('format').fit('max')

@@ -23,6 +23,20 @@ export const post = defineType({
             title: "Main Image",
             type: 'image',
             options: {hotspot: true},
+            fields: [
+                defineField({
+                    name: 'alt',
+                    title: 'Alternative text',
+                    type: 'string',
+                    description: 'Important for accessibility.',
+                }),
+            ],
+        }),
+        defineField({
+            name: 'author',
+            title: 'Author',
+            type: 'reference',
+            to: [{type: 'person'}],
         }),
         defineField({
             name: 'publishedAt',
