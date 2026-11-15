@@ -56,6 +56,7 @@
 import Reveal from "./ui/Reveal";
 import { useLanguage } from "../context/LanguageContext";
 import { LayoutGrid, Globe, Smartphone, Bot, Code2 } from "lucide-react";
+import InteractiveCanvas from "./InteractiveCanvas"; // <-- Import the canvas
 
 // Define the icons here (we can't store React components in JSON)
 const icons = [
@@ -71,11 +72,15 @@ export default function Services() {
   const { title, subtitle, items } = dict.servicesSection;
 
   return (
-    <section id="services" className="relative py-[92px] overflow-hidden">
+    <section id="services" className="relative py-[92px] overflow-hidden bg-[var(--bg)]">
       
-      {/* The Glow */}
+      {/* The Interactive Particle Canvas */}
+      <InteractiveCanvas />
+
+      {/* The Glow (z-0 to stay behind content, but above canvas if needed) */}
       <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-[radial-gradient(ellipse_at_bottom,rgba(14,255,135,0.15),transparent_50%)] pointer-events-none z-0" />
 
+      {/* Content sits at z-10 to stay above the particles and glow */}
       <div className="max-w-[1320px] mx-auto px-4 md:px-8 relative z-10">
         <Reveal className="max-w-[640px] mb-[48px]">
           <h2 className="text-[clamp(30px,4vw,42px)] font-bold tracking-[-0.015em]">
@@ -94,7 +99,7 @@ export default function Services() {
               <Reveal 
                 key={i} 
                 delay={i * 0.1} 
-                className={`${isBig ? "md:col-span-2 bg-[var(--navy)] text-[#F5F7FA] border-[var(--navy)]" : "bg-[var(--surface)] border-[var(--line)]"} border rounded-[14px] p-[28px] group hover:border-[var(--gold)] hover:shadow-[0_18px_40px_rgba(16,44,66,.2)] transition-all duration-300`}
+                className={`${isBig ? "md:col-span-2 bg-[var(--navy)] text-[#F5F7FA] border-[var(--navy)]" : "bg-[var(--surface)] border-[var(--line)]"} border rounded-[14px] p-[28px] group hover:border-[var(--gold)] hover:shadow-[0_18px_40px_rgba(16,44,66,.2)] transition-all duration-300 relative overflow-hidden`}
               >
                 <div className={`w-[46px] h-[46px] rounded-[12px] grid place-items-center transition-transform group-hover:rotate-[-8deg] group-hover:scale-[1.12] ${isBig ? "bg-[var(--gold)]" : "bg-[rgba(212,175,55,.18)]"}`}>
                   {/* Render the matching icon from the array */}
@@ -103,13 +108,13 @@ export default function Services() {
                   </div>
                 </div>
                 
-                <h3 className="text-[21px] mt-4 mb-2.5">{s.title}</h3>
-                <p className={`text-[16px] m-0 ${isBig ? "text-[#c3d0dc]" : "text-[var(--muted)]"}`}>
+                <h3 className="text-[21px] mt-4 mb-2.5 relative z-10">{s.title}</h3>
+                <p className={`text-[16px] m-0 relative z-10 ${isBig ? "text-[#c3d0dc]" : "text-[var(--muted)]"}`}>
                   {s.desc}
                 </p>
                 
                 {s.tags && s.tags.length > 0 && (
-                  <ul className="mt-4 p-0 list-none flex flex-wrap gap-2">
+                  <ul className="mt-4 p-0 list-none flex flex-wrap gap-2 relative z-10">
                     {s.tags.map((t: string) => (
                       <li key={t} className="text-[13px] font-bold px-3 py-[5px] rounded-full border border-[rgba(125,183,232,.4)] text-[var(--sky)]">
                         {t}

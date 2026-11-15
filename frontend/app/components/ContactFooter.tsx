@@ -116,22 +116,23 @@
 import Image from "next/image";
 import Reveal from "./ui/Reveal";
 import Link from "next/link";
-import { useLanguage } from "../context/LanguageContext"; // <-- Import
+import { useLanguage } from "../context/LanguageContext";
 
 export function Contact() {
-  const { dict } = useLanguage(); // <-- Get dictionary
+  const { dict } = useLanguage();
   const text = dict.contactSection;
 
   return (
     <section 
       id="contact" 
-      className="relative pt-[100px] pb-[40px] bg-[var(--bg)] border-t border-[var(--line)] overflow-hidden"
+      // CHANGED: bg-[var(--bg)] to bg-[var(--surface)] for a subtle contrast in light mode
+      className="relative pt-[100px] pb-[40px] bg-[var(--surface)] border-t border-[var(--line)] overflow-hidden"
     >
       {/* Dot Grid Pattern */}
       <div className="absolute inset-0 bg-[radial-gradient(var(--line)_1px,transparent_1px)] [background-size:24px_24px] opacity-60 pointer-events-none" />
 
       {/* Subtle top glow */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[300px] bg-[radial-gradient(ellipse_at_top,rgba(14,255,135,0.08),transparent_60%)] pointer-events-none" />
+      {/* <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[300px] bg-[radial-gradient(ellipse_at_top,rgba(14,255,135,0.08),transparent_60%)] pointer-events-none" /> */}
 
       <div className="max-w-[1320px] mx-auto px-4 md:px-8 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12 lg:gap-8">

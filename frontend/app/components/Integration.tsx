@@ -134,12 +134,12 @@
 import Image from "next/image";
 import { Globe, ShoppingCart, MessageSquare, Smartphone, Bot, Zap } from "lucide-react";
 import Reveal from "./ui/Reveal";
-import { useLanguage } from "../context/LanguageContext"; // <-- Added import
+import { useLanguage } from "../context/LanguageContext"; 
+import InteractiveCanvas from "./InteractiveCanvas"; // <-- Import the canvas
 
 export default function Integration() {
-  const { dict } = useLanguage(); // <-- Get dictionary
+  const { dict } = useLanguage(); 
   
-  // Fallback object in case the dictionary isn't fully loaded yet
   const text = dict.integration || {
     title: "One connected system for your whole business.",
     subtitle: "Your website, apps, and AI agents all talk to the same central database in real-time.",
@@ -149,10 +149,13 @@ export default function Integration() {
   return (
     <section id="integration" className="py-[92px] bg-[var(--bg)] overflow-hidden relative" >
       {/* Subtle background dots */}
-      <div className="absolute inset-0 bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] dark:bg-[radial-gradient(#2c3a49_1px,transparent_1px)] [background-size:24px_24px] opacity-50" />
+      <div className="absolute inset-0 bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] dark:bg-[radial-gradient(#2c3a49_1px,transparent_1px)] [background-size:24px_24px] opacity-50 pointer-events-none" />
       
       {/* Top glow */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-[radial-gradient(ellipse_at_top,rgba(14,255,135,0.15),transparent_50%)] pointer-events-none" />
+
+      {/* Interactive Particle Canvas */}
+      <InteractiveCanvas />
 
       <div className="max-w-[1320px] mx-auto px-4 md:px-8 relative z-10">
         <Reveal className="text-center max-w-[800px] mx-auto mb-16">
@@ -182,23 +185,11 @@ export default function Integration() {
             </defs>
 
             {/* Extended Curved Paths (Diving deep behind the dashboard) */}
-            
-            {/* Website -> Dashboard (Left) */}
             <path d="M 100 120 C 100 350, 150 450, 250 600" fill="none" stroke="url(#lineGrad)" strokeWidth="2.5" strokeDasharray="8 8" className="animate-[dash_2s_linear_infinite]" />
-            
-            {/* Ecommerce -> Dashboard (Top Left) */}
             <path d="M 350 60 C 350 250, 380 400, 400 600" fill="none" stroke="url(#lineGrad)" strokeWidth="2.5" strokeDasharray="8 8" className="animate-[dash_2.5s_linear_infinite]" />
-            
-            {/* Chatbot -> Dashboard (Top Right) */}
             <path d="M 650 60 C 650 250, 620 400, 600 600" fill="none" stroke="url(#lineGrad)" strokeWidth="2.5" strokeDasharray="8 8" className="animate-[dash_2.2s_linear_infinite]" />
-            
-            {/* AI Agent -> Dashboard (Right) */}
             <path d="M 900 140 C 900 350, 850 450, 750 600" fill="none" stroke="url(#lineGrad)" strokeWidth="2.5" strokeDasharray="8 8" className="animate-[dash_1.8s_linear_infinite]" />
-            
-            {/* Mobile App -> Dashboard (Bottom Left) */}
             <path d="M 80 650 C 150 650, 180 550, 250 560" fill="none" stroke="url(#lineGrad)" strokeWidth="2.5" strokeDasharray="8 8" className="animate-[dash_3s_linear_infinite]" />
-            
-            {/* Automation -> Dashboard (Bottom Right) */}
             <path d="M 920 650 C 850 650, 820 550, 750 560" fill="none" stroke="url(#lineGrad)" strokeWidth="2.5" strokeDasharray="8 8" className="animate-[dash_2.8s_linear_infinite]" />
           </svg>
 

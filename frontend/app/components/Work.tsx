@@ -239,7 +239,8 @@ import Reveal from "./ui/Reveal";
 import { motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
 import { useRef } from "react";
-import { useLanguage } from "../context/LanguageContext"; // <-- Import context
+import { useLanguage } from "../context/LanguageContext"; 
+import InteractiveCanvas from "./InteractiveCanvas"; // <-- Import the canvas
 
 // We keep the static image URLs here so the translation JSON stays clean
 const projectImages = [
@@ -250,7 +251,7 @@ const projectImages = [
 ];
 
 export default function Work() {
-  const { dict } = useLanguage(); // <-- Get dictionary
+  const { dict } = useLanguage(); 
   const containerRef = useRef<HTMLDivElement>(null);
 
   // Merge the translated text with the static images
@@ -267,7 +268,12 @@ export default function Work() {
 
   return (
     <section id="work" className="py-[42px] bg-[var(--bg)] relative">
-      <div className="max-w-[1320px] mx-auto px-4 md:px-8">
+      
+      {/* Interactive Particle Canvas */}
+      <InteractiveCanvas />
+
+      {/* Added relative z-10 to keep the content above the canvas */}
+      <div className="max-w-[1320px] mx-auto px-4 md:px-8 relative z-10">
         <Reveal className="max-w-[640px] mb-[32px]">
           <h2 className="text-[clamp(30px,4vw,42px)] font-bold tracking-[-0.015em]">
             {dict.workSection.title}
@@ -290,7 +296,7 @@ export default function Work() {
                 progress={scrollYProgress}
                 range={[i * (1 / projects.length), 1]}
                 targetScale={targetScale}
-                exploreText={dict.workSection.exploreBtn} // Pass the button text
+                exploreText={dict.workSection.exploreBtn} 
               />
             );
           })}
@@ -328,7 +334,7 @@ function Card({ project, i, progress, range, targetScale, exploreText }: any) {
         </div>
 
         {/* Right Side: Content */}
-        <div className="p-8 md:p-12 flex-1 flex flex-col justify-center">
+        <div className="p-8 md:p-12 flex-1 flex flex-col justify-center bg-[var(--surface)]">
           <div className="text-sm font-bold text-[var(--acc)] mb-2">
             0{i + 1} — {project.kind}
           </div>
