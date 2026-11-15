@@ -206,7 +206,7 @@ export function Contact() {
         {/* Bottom Copyright Bar */}
         <div className="mt-16 pt-8 border-t border-[var(--line)] text-center flex flex-col items-center justify-center">
           <p className="text-[14px] text-[var(--muted)]">
-            © {new Date().getFullYear()} Sabaco Digital Construct. {text.copyright}
+            © {new Date().getFullYear()} Sabaco Digital Solutions. {text.copyright}
           </p>
         </div>
       </div>
