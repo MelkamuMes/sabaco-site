@@ -192,8 +192,8 @@ export function FeatureTabs() {
             onClick={() => setActive(tab)} 
             className={`flex-1 p-2.5 rounded-lg font-bold text-sm transition-colors ${
               active === tab 
-                ? "bg-[var(--navy)] text-[var(--gold)]" 
-                : "bg-transparent text-gray-500 hover:text-gray-900 dark:text-[#9fb2c4] dark:hover:text-white"
+            ? "bg-gray-200 text-gray-900 dark:bg-[var(--navy)] dark:text-[var(--gold)]" 
+            : "bg-transparent text-gray-500 hover:text-gray-900 dark:text-[#9fb2c4] dark:hover:text-white"
             }`}
           >
             {dict.heroInteractive.tabs[tab as keyof typeof dict.heroInteractive.tabs]}

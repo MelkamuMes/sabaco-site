@@ -10,7 +10,7 @@ const postFields = /* groq */ `
   "excerpt": array::join(string::split(pt::text(body), " ")[0...20], " ") + "...",
   mainImage, // Changed from coverImage
   "date": coalesce(publishedAt, _updatedAt), // Changed from date
-  "author": author->{name, picture}, 
+  "author": author->{firstName, lastName, picture},
 `
 
 const linkReference = /* groq */ `
@@ -58,7 +58,7 @@ export const getPageQuery = defineQuery(`
 `)
 
 export const sitemapData = defineQuery(`
-  *[_type == "page" || _type == "post" && defined(slug.current)] | order(_type asc) {
+  *[_type in ["page", "post"] && defined(slug.current)] | order(_type asc) {
     "slug": slug.current,
     _type,
     _updatedAt,

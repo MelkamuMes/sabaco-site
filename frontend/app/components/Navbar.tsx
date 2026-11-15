@@ -125,7 +125,7 @@ export default function Navbar() {
   });
 
   const navLinks = [
-    { name: dict.nav.home, href: "#top" },
+    // { name: dict.nav.home, href: "#top" },
     { name: dict.nav.services, href: "#services" },
     { name: dict.nav.solutions, href: "#integration" },
     { name: dict.nav.blog, href: "#work" },

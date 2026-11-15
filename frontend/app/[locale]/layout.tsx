@@ -1,5 +1,4 @@
-import { LanguageProvider } from "../context/LanguageContext";
-import "../globals.css"; // Ensure your CSS is imported
+import {LanguageProvider} from '../context/LanguageContext'
 
 export default async function LocaleLayout({
   children,
@@ -8,24 +7,8 @@ export default async function LocaleLayout({
   children: React.ReactNode;
   params: Promise<{ locale: string }>;
 }) {
-  // Await params for Next.js 15+ compatibility
-  const { locale } = await params;
-  
-  // Load the correct dictionary (default to 'en' if not found)
-  let dict;
-  try {
-    dict = (await import(`../../../dictionaries/${locale}.json`)).default;
-  } catch (error) {
-    dict = (await import(`../../dictionaries/en.json`)).default;
-  }
+  const {locale} = await params
+  const supportedLocale = locale === 'am' ? 'am' : 'en'
 
-  return (
-    <html lang={locale} suppressHydrationWarning>
-      <body className="antialiased">
-        <LanguageProvider locale={locale} dict={dict}>
-          {children}
-        </LanguageProvider>
-      </body>
-    </html>
-  );
+  return <LanguageProvider locale={supportedLocale}>{children}</LanguageProvider>
 }

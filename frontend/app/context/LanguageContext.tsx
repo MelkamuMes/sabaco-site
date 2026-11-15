@@ -12,16 +12,25 @@ type LanguageContextType = {
 
 const LanguageContext = createContext<LanguageContextType | null>(null);
 
-export function LanguageProvider({ children }: { children: ReactNode }) {
-  const [locale, setLocale] = useState<"en" | "am">("en");
+type Locale = "en" | "am";
+
+type LanguageProviderProps = {
+  children: ReactNode;
+  locale?: Locale;
+};
+
+export function LanguageProvider({ children, locale: initialLocale }: LanguageProviderProps) {
+  const [locale, setLocale] = useState<Locale>(initialLocale ?? "en");
 
   // Load saved language on mount
   useEffect(() => {
+    if (initialLocale) return;
+
     const saved = localStorage.getItem("locale");
     if (saved === "am" || saved === "en") {
       setLocale(saved);
     }
-  }, []);
+  }, [initialLocale]);
 
   const toggleLanguage = () => {
     const next = locale === "en" ? "am" : "en";

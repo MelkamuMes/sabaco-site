@@ -40,6 +40,133 @@
       "bot1": "Found it. Invoice #2031 was sent on 3 March. Want me to email it again?",
       "user2": "Yes, please."
     }
+  },
+    "marquee": {
+    "items": ["ERP", "Sales", "HR management", "Inventory", "Payroll Processing", "Finance Management", "Telegram bots", "Mobile Apps", "Websites", "Custom Software", "Automation"]
+  },
+    "servicesSection": {
+    "title": "Everything your company needs to build, in one team.",
+    "subtitle": "One partner for strategy, design, development and support, so your systems work together from day one.",
+    "items": [
+      {
+        "title": "ERP systems",
+        "desc": "One platform for sales, stock, accounting, HR and reporting. We build it around your real workflows and connect it to the tools you already use.",
+        "tags": ["Sales", "Inventory", "Finance", "HR and payroll", "Dashboards"]
+      },
+      {
+        "title": "Websites",
+        "desc": "Fast, secure sites and web apps that turn visitors into customers.",
+        "tags": []
+      },
+      {
+        "title": "Mobile apps",
+        "desc": "iOS and Android apps your customers and staff enjoy using every day.",
+        "tags": []
+      },
+      {
+        "title": "Telegram bots",
+        "desc": "Bots for Telegram, WhatsApp and your website.",
+        "tags": []
+      },
+      {
+        "title": "Custom software",
+        "desc": "Have a different idea? We build integrations, portals and internal tools to your specification.",
+        "tags": []
+      }
+    ]
+  },
+    "integration": {
+    "title": "One connected system for your whole business.",
+    "subtitle": "Your website, apps, and Centralized ERP System all talk to the same central database in real-time.",
+    "badges": {
+      "website": "Website",
+      "ecommerce": "Ecommerce",
+      "chatbot": "Chatbot",
+      "aiAgent": "ERP System in Sales",
+      "mobileApp": "Mobile App",
+      "automation": "Automation"
+    }
+  },
+    "automation": {
+    "heading": "Stop losing hours to",
+    "strikethrough": "Telegram, WhatsApp and paperwork",
+    "cardTitle": "An ERP System at Work (Example)",
+    "notifications": [
+      "Supplier invoice matched to its order",
+      "Refund request handed to the support team",
+      "Weekly sales report drafted"
+    ],
+    "steps": [
+      {
+        "problem": "Supplier invoices are retyped into spreadsheets by hand every week.",
+        "solution": "Documents are read and matched automatically, and your team only reviews the exceptions."
+      },
+      {
+        "problem": "Customers ask the same questions on Telegram and WhatsApp, answered one message at a time.",
+        "solution": "An assistant answers routine questions around the clock and hands the rest to a person."
+      },
+      {
+        "problem": "Reports are pieced together from five files the night before the meeting.",
+        "solution": "Live dashboards draw from one source of truth, so the numbers are ready when you are."
+      }
+    ]
+  },
+    "workSection": {
+    "title": "Systems we have built.",
+    "subtitle": "A selection of our projects. Scroll down to explore.",
+    "exploreBtn": "Explore project",
+    "projects": [
+      {
+        "kind": "ERP system",
+        "title": "Attendance Tracking and Payroll Management System ERP",
+        "desc": "One system for sales, stock, purchasing and accounting, with live dashboards for managers.",
+        "chips": ["Sales", "Inventory", "Finance", "Reports"]
+      },
+      {
+        "kind": "Mobile app",
+        "title": "Employee Attendance Track",
+        "desc": "Customers order, track and pay from their phone. Drivers get routes and updates.",
+        "chips": ["iOS", "Android", "Payments"]
+      },
+      {
+        "kind": "Mobile app",
+        "title": "Employee Detail App",
+        "desc": "Display Employee Detail Records",
+        "chips": ["Telegram", "Automation", "ERP link"]
+      },
+      {
+        "kind": "Employee portal",
+        "title": "Corporate website with employee profiles",
+        "desc": "A fast, modern site that presents the company clearly.",
+        "chips": ["Responsive", "SEO", "Booking"]
+      }
+    ]
+  },
+    "processSection": {
+    "title": "A clear process, from first call to launch.",
+    "subtitle": "You always know what is happening and what comes next.",
+    "steps": [
+      { "title": "Discover", "desc": "We learn your business, your goals and the problems to solve." },
+      { "title": "Design", "desc": "You approve the plan and a working prototype before we build." },
+      { "title": "Build", "desc": "We develop in short cycles and show progress every week." },
+      { "title": "Launch and support", "desc": "We deploy, train your team and keep improving the system." }
+    ]
+  },
+  "contactSection": {
+    "description": "Technology · ERP · Software Development · Digital Transformation. Building complete digital business systems for Ethiopian and international businesses.",
+    "servicesTitle": "Services",
+    "servicesList": [
+      "Custom Software Development",
+      "Web & Mobile Applications",
+      "ERP Automation",
+      "Enterprise Systems",
+      "UI/UX Design",
+      "Cloud Solutions",
+      "Case Studies"
+    ],
+    "contactTitle": "Contact",
+    "location": "Addis Ababa, Ethiopia",
+    "copyright": "All rights reserved."
   }
 
 }
