@@ -18,6 +18,12 @@ const manrope = Manrope({
 export const metadata: Metadata = {
   title: "Sabaco – ERP, web, mobile and bot development",
   description: "We design and build ERP systems, websites, mobile apps and chatbots.",
+
+  //  icons: {
+  //   icon: "/images/sabaco.png",
+  //   shortcut: "/images/sabaco.png",
+  //   apple: "/images/sabaco.png",
+  // },
 };
 
 export default function RootLayout({
