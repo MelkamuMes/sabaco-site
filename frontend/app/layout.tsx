@@ -16,7 +16,7 @@ const manrope = Manrope({
 });
 
 export const metadata: Metadata = {
-  title: "Sabaco – ERP, web, mobile and bot development",
+  title: "Sabaco Digital Solutions",
   description: "We design and build ERP systems, websites, mobile apps and chatbots.",
 
   //  icons: {
